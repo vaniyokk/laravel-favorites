@@ -1,0 +1,49 @@
+{
+  "name": "GregoryClaeyssens/laravel-likeable",
+  "description": "Trait for Laravel Eloquent models to allow easy implementation of a 'like' or 'favorite' or 'remember' feature.",
+  "license": "MIT",
+  "homepage": "http://sugar.gent",
+  "keywords": [
+    "trait",
+    "laravel",
+    "laravel5",
+    "eloquent",
+    "likeable",
+    "likable",
+    "like",
+    "remember",
+    "follow",
+    "favorite",
+    "favourite"
+  ],
+  "authors": [
+    {
+      "name": "Gregory Claeyssens",
+      "email": "gregory@sugar.gent"
+    },
+    {
+      "name": "Robert Conner",
+      "email": "rtconner@smarter.bz"
+    }
+  ],
+  "require": {
+    "php": ">=5.5.0",
+    "illuminate/database": ">=5.0",
+    "illuminate/support": ">=5.0"
+  },
+  "require-dev": {
+    "orchestra/testbench": "~3.0",
+    "phpunit/phpunit": "~4.0",
+    "mockery/mockery": "~0.9"
+  },
+  "autoload": {
+    "psr-4": {
+      "Sugar\\Likeable\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "classmap": [
+      "tests/TestCase.php"
+    ]
+  }
+}
