@@ -1,5 +1,5 @@
 {
-  "name": "GregoryClaeyssens/laravel-likeable",
+  "name": "sugar-agency/laravel-likeable",
   "description": "Trait for Laravel Eloquent models to allow easy implementation of a 'like' or 'favorite' or 'remember' feature.",
   "license": "MIT",
   "homepage": "http://sugar.gent",
@@ -20,10 +20,6 @@
     {
       "name": "Gregory Claeyssens",
       "email": "gregory@sugar.gent"
-    },
-    {
-      "name": "Robert Conner",
-      "email": "rtconner@smarter.bz"
     }
   ],
   "require": {
