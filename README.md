@@ -129,3 +129,4 @@ class AuthController extends Controller {
 ## Credits
  - Gregory Claeyssens - http://sugar.gent
  - Robert Conner - http://smartersoftware.net
+
