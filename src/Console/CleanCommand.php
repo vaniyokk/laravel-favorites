@@ -1,8 +1,8 @@
-<?php namespace Sugar\Likeable\Console;
+<?php namespace Sugar\Favorites\Console;
 
 use Carbon\Carbon;
 use Illuminate\Console\Command;
-use Sugar\Likeable\Models\Like;
+use Sugar\Favorites\Models\Like;
 
 class CleanCommand extends Command {
 
@@ -11,7 +11,7 @@ class CleanCommand extends Command {
      *
      * @var string
      */
-    protected $name = 'likeable:clean';
+    protected $name = 'favorites:clean';
 
     /**
      * The console command description.
@@ -23,7 +23,7 @@ class CleanCommand extends Command {
     protected $config;
 
     public function __construct() {
-        $this->config = config('likeable');
+        $this->config = config('favorites');
         parent::__construct();
     }
 

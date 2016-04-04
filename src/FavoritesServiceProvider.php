@@ -1,4 +1,4 @@
-<?php namespace Sugar\Likeable;
+<?php namespace Sugar\Favorites;
 
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
@@ -6,7 +6,7 @@ use Illuminate\Support\ServiceProvider;
 /**
  * Copyright (C) 2016 Gregory Claeyssens
  */
-class LikeableServiceProvider extends ServiceProvider {
+class FavoritesServiceProvider extends ServiceProvider {
     /**
      * Indicates if loading of the provider is deferred.
      *
@@ -20,10 +20,10 @@ class LikeableServiceProvider extends ServiceProvider {
      * @return void
      */
     public function register() {
-        $this->app['command.likeable.clean'] = $this->app->share(function ($app) {
+        $this->app['command.favorites.clean'] = $this->app->share(function ($app) {
             return new Console\CleanCommand();
         });
-        $this->commands('command.likeable.clean');
+        $this->commands('command.favorites.clean');
     }
 
     /**
@@ -35,7 +35,7 @@ class LikeableServiceProvider extends ServiceProvider {
         ], 'migrations');
 
         $this->publishes([
-            realpath(__DIR__ . '/../config/likeable.php') => config_path('likeable.php')
+            realpath(__DIR__ . '/../config/favorites.php') => config_path('favorites.php')
         ], 'config');
     }
 
@@ -45,8 +45,8 @@ class LikeableServiceProvider extends ServiceProvider {
      * @return array
      */
     public function provides() {
-        return array('likeable',
-            'likeable.clean',
+        return array('favorites',
+            'favorites.clean',
         );
     }
 }

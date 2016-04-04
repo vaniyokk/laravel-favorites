@@ -1,7 +1,7 @@
-<?php namespace Sugar\Likeable;
+<?php namespace Sugar\Favorites;
 
 use Carbon\Carbon;
-use Sugar\Likeable\Models\Like;
+use Sugar\Favorites\Models\Like;
 
 /**
  * Copyright (C) 2016 Gregory Claeyssens

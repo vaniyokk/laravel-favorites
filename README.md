@@ -1,9 +1,9 @@
-Laravel Likeable Plugin
+Laravel Favorites Plugin
 ============
 
-[![Build Status](https://travis-ci.org/sugar-agency/laravel-likeable.svg?branch=master)](https://travis-ci.org/sugar-agency/laravel-likeable)
-[![Latest Stable Version](https://poser.pugx.org/sugar-agency/laravel-likeable/v/stable.svg)](https://packagist.org/packages/sugar-agency/laravel-likeable)
-[![License](https://poser.pugx.org/sugar-agency/laravel-likeable/license.svg)](https://packagist.org/packages/sugar-agency/laravel-likeable)
+[![Build Status](https://travis-ci.org/sugar-agency/laravel-favorites.svg?branch=master)](https://travis-ci.org/sugar-agency/laravel-favorites)
+[![Latest Stable Version](https://poser.pugx.org/sugar-agency/laravel-favorites/v/stable.svg)](https://packagist.org/packages/sugar-agency/laravel-favorites)
+[![License](https://poser.pugx.org/sugar-agency/laravel-favorites/license.svg)](https://packagist.org/packages/sugar-agency/laravel-favorites)
 
 Trait for Laravel Eloquent models to allow easy implementation of a "like" or "favorite" or "remember" feature.  
 Based heavily on rtconner/laravel-likeable.
@@ -11,18 +11,18 @@ Based heavily on rtconner/laravel-likeable.
 
 ## Composer Install
 
-	composer require sugar/laravel-likeable
+	composer require sugar/laravel-favorites
 
 ## Install and then run the migrations
 
 ```php
 'providers' => [
-	\Sugar\Likeable\LikeableServiceProvider::class,
+	\Sugar\Favorites\FavoritesServiceProvider::class,
 ],
 ```
 
 ```bash
-php artisan vendor:publish --provider="Sugar\Likeable\LikeableServiceProvider"
+php artisan vendor:publish --provider="Sugar\Favorites\FavoritesServiceProvider"
 php artisan migrate
 ```
 
@@ -30,17 +30,17 @@ php artisan migrate
 
 ```php
 class Article extends \Illuminate\Database\Eloquent\Model {
-	use \Sugar\Likeable\Likeable;
+	use \Sugar\Favorites\Likeable;
 }
 ```
 
 ## Configuration file
 
-After installation, the config file is located at *config/likeable.php*  
+After installation, the config file is located at *config/favorites.php*  
 You can :
 * enable session fallback for likes
-* define the lifetime (in minutes) for the command likeable:clean
-* define if the command likeable:clean should delete only session likes
+* define the lifetime (in minutes) for the command favorites:clean
+* define if the command favorites:clean should delete only session likes
 
 ## Likeable Trait
 
@@ -91,7 +91,7 @@ Article::whereLikedBy($myUserId, false)->get(); // for a specific user
 Because someone's favorite could be 'outdated' and not representative anymore.  
 There is a command for that. The time after which a like is outdated can be set in the config, also you can define if it should only delete session likes
 ```sh
-php artisan likeable:clean
+php artisan favorites:clean
 ```
 
 ## Helper class
@@ -106,7 +106,7 @@ class AuthController extends Controller {
     }
     use ThrottlesLogins;
 
-    public function login(Request $request, \Sugar\Likeable\Helper $helper) {
+    public function login(Request $request, \Sugar\Favorites\Helper $helper) {
         $session_id = $helper->sessionId();
         $return = $this->traitlogin($request);
         if(Auth::check()){
@@ -114,7 +114,7 @@ class AuthController extends Controller {
         }
         return $return;
     }
-    public function register(Request $request, \Sugar\Likeable\Helper $helper){
+    public function register(Request $request, \Sugar\Favorites\Helper $helper){
         $session_id = $helper->sessionId();
         $return = $this->traitregister($request);
         if(Auth::check()){

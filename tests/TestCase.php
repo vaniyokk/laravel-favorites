@@ -1,12 +1,12 @@
 <?php
 
-use Sugar\Likeable\LikeableServiceProvider;
+use Sugar\Favorites\FavoritesServiceProvider;
 
 abstract class TestCase extends Orchestra\Testbench\TestCase
 {
 	protected function getPackageProviders($app)
 	{
-	    return [LikeableServiceProvider::class];
+	    return [FavoritesServiceProvider::class];
 	}
 	
 	public function setUp()

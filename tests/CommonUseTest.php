@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
 use Illuminate\Support\Facades\Artisan;
-use Sugar\Likeable\Likeable;
+use Sugar\Favorites\Likeable;
 
 class CommonUseTest extends TestCase
 {
@@ -20,9 +20,9 @@ class CommonUseTest extends TestCase
 	
 	protected function getEnvironmentSetUp($app)
 	{
-		$app['config']->set('likeable.lifetime', 0);
-		$app['config']->set('likeable.sessions', true);
-		$app['config']->set('likeable.clean_only_session_likes', false);
+		$app['config']->set('favorites.lifetime', 0);
+		$app['config']->set('favorites.sessions', true);
+		$app['config']->set('favorites.clean_only_session_likes', false);
 		$app['config']->set('database.default', 'testbench');
 	    $app['config']->set('database.connections.testbench', [
 	        'driver'   => 'sqlite',
@@ -94,14 +94,14 @@ class CommonUseTest extends TestCase
 		$stub->like(3);
 		$stub->like(4);
 
-		Artisan::call('likeable:clean');
+		Artisan::call('favorites:clean');
 
 		$this->assertEquals(0, $stub->likeCount);
 	}
 
 	public function test_session_to_user_likes_convert()
 	{
-		$helper = new \Sugar\Likeable\Helper();
+		$helper = new \Sugar\Favorites\Helper();
 		$stub = Stub::create(['name'=>123]);
 
 		$stub->like('user_1', false);

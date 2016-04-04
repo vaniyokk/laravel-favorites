@@ -1,6 +1,6 @@
 {
-  "name": "sugar-agency/laravel-likeable",
-  "description": "Trait for Laravel Eloquent models to allow easy implementation of a 'like' or 'favorite' or 'remember' feature.",
+  "name": "sugar-agency/laravel-favorites",
+  "description": "Implementation of a 'like' or 'favorite' or 'remember' feature. Supports for session based favorites that are automatically transfered to an authenticated user when possible",
   "license": "MIT",
   "homepage": "http://sugar.gent",
   "keywords": [
@@ -34,7 +34,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Sugar\\Likeable\\": "src/"
+      "Sugar\\Favorites\\": "src/"
     }
   },
   "autoload-dev": {

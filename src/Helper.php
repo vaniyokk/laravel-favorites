@@ -1,14 +1,14 @@
-<?php namespace Sugar\Likeable;
+<?php namespace Sugar\Favorites;
 
 use App\User;
-use Sugar\Likeable\Models\Like;
+use Sugar\Favorites\Models\Like;
 
 class Helper {
 
     protected $config;
 
     public function __construct() {
-        $this->config = config('likeable');
+        $this->config = config('favorites');
     }
 
     /**
