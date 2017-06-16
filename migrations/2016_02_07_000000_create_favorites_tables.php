@@ -7,7 +7,7 @@ class CreateFavoritesTables extends Migration {
     public function up() {
         Schema::create('favorites_likes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('likeable_id', 36);
+            $table->integer('likeable_id');
             $table->string('likeable_type', 255);
             $table->string('user_id')->index();
             $table->boolean('session_like');
